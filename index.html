@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobVault - Job Application Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Lato:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #FBFBFE;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-family: 'Merriweather', serif;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #050606;
+      font-weight: 500;
+      margin-top: 160px;
+      justify-content: flex-end;
+      display: inline;
+      margin-top: 100px;
+      margin-left: 32px;
+    }
+
+    .hero-section {
+      background-color: #fff7f0;
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-section .text {
+      max-width: 50%;
+    }
+
+    .hero-section h1 {
+      font-family: 'Merriweather', serif;
+      color: #ff6d00;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding: 16px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    .search-bar input,
+    .search-bar select,
+    .search-bar button {
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      padding-right: 32px;
+      align-content: center;
+    }
+
+    .search-bar button {
+      background-color: #ff6d00;
+      color: #fff;
+      cursor: pointer;
+      padding: 16px;
+    }
+
+    .popular-jobs,
+    .job-categories {
+      padding: 2rem;
+    }
+
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .jobs-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .job-card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      text-align: center;
+      margin-right: 64px;
+      margin-bottom: 32px;
+    }
+
+    .job-card h3 {
+      color: #ff6d00;
+    }
+
+    .apply-btn {
+      background-color: #ff6d00;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .job-categories .categories-container {
+      align-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 140px;
+    }
+
+    .categories-container2{
+      align-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 140px;
+      margin-top: 32px;
+    }
+
+    .category-card {
+      align-items: center;
+      background-color: #fff;
+      padding: 32px;
+      width: 300px;
+      border: 1px solid #ddd;
+      text-align: left;
+      border-radius: 5px;
+      margin-left: 64px;
+    }
+
+    .category-card:hover{
+      background-color:#FA4D05;
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      transition: filter 0.3s;
+    }
+
+    .category-card:hover.icon{
+      filter: brightness(0) invert(1);
+    }
+
+    #signinBtn{
+      border-color: #FA4D05;
+      padding: 10px 32px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    #signupBtn{
+      background-color: #FA4D05;
+      padding: 10px 32px;
+      border: none;
+      border-radius: 8px;
+      color: #FBFBFE;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #ff6d00;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><img src="images/logo.png" alt="logo" width="234px"></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Find Jobs</a></li>
+        <li><a href="#">Companies</a></li>
+        <li><a href="#">Contact</a></li>
+        <button id="signinBtn">Sign In</button>
+        <button id="signupBtn">Sign Up</button>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="text">
+      <h1>Where Talent Meets Opportunity</h1>
+      <p>Whether you're a fresh graduate or a seasoned professional, explore thousands of job listings, connect with top recruiters, and take charge of your future.</p>
+      <div class="search-bar">
+        <input type="text" placeholder="Job title or keyword">
+        <select>
+          <option>Kaduwela, Malabe</option>
+        </select>
+        <button>Find Job</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="images/hero.png" alt="Job search illustration" style="max-width: 100%;">
+    </div>
+  </section>
+
+  <section class="popular-jobs">
+    <h2 class="section-title">Popular Jobs</h2>
+    <div class="jobs-container">
+      <div class="job-card">
+        <img src="images/lorem1.png" alt="" width="57px" class="icon">
+        <h3>Logistics Manager</h3>
+        <p>Colombo 00500, Sri Lanka</p>
+        <p>Rs. 60,000/month</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-card">
+        <img src="images/lorem2.png" alt="" width="57px">
+        <h3>Logistics Manager</h3>
+        <p>Colombo 00500, Sri Lanka</p>
+        <p>Rs. 60,000/month</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-card">
+        <img src="images/lorem3.png" alt="" width="57px">
+        <h3>Logistics Manager</h3>
+        <p>Colombo 00500, Sri Lanka</p>
+        <p>Rs. 60,000/month</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-card">
+        <img src="images/lorem3.png" alt="" width="57px">
+        <h3>Logistics Manager</h3>
+        <p>Colombo 00500, Sri Lanka</p>
+        <p>Rs. 60,000/month</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+    </div>
+
+    <div class="jobs-container">
+      <div class="job-card">
+        <img src="images/lorem1.png" alt="" width="57px">
+        <h3>Logistics Manager</h3>
+        <p>Colombo 00500, Sri Lanka</p>
+        <p>Rs. 60,000/month</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-card">
+        <img src="images/lorem2.png" alt="" width="57px">
+        <h3>Logistics Manager</h3>
+        <p>Colombo 00500, Sri Lanka</p>
+        <p>Rs. 60,000/month</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-card">
+        <img src="images/lorem3.png" alt="" width="57px">
+        <h3>Logistics Manager</h3>
+        <p>Colombo 00500, Sri Lanka</p>
+        <p>Rs. 60,000/month</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-card">
+        <img src="images/lorem3.png" alt="" width="57px">
+        <h3>Logistics Manager</h3>
+        <p>Colombo 00500, Sri Lanka</p>
+        <p>Rs. 60,000/month</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="job-categories">
+    <h2 class="section-title">Job Categories</h2>
+    <div class="categories-container">
+      <div class="category-card">
+        <img src="images/design.png" alt="" width="50px">
+        <h3>Accounting & Finance</h3>
+        <p>2235 jobs available</p>
+      </div>
+      <div class="category-card">
+        <img src="images/sales.png" alt="" width="50px">
+        <h3>Sales</h3>
+        <p>2235 jobs available</p>
+      </div>
+      <div class="category-card">
+        <img src="images/marketing.png" alt="" width="50px">
+        <h3>Marketing</h3>
+        <p>2235 jobs available</p>
+      </div>
+      <div class="category-card">
+        <img src="images/finance.png" alt="" width="50px">
+        <h3>Finance</h3>
+        <p>2235 jobs available</p>
+      </div>
+    </div>
+
+    <div class="categories-container2">
+      <div class="category-card">
+        <img src="images/technology.png" alt="" width="50px">
+        <h3>Technology</h3>
+        <p>2235 jobs available</p>
+      </div>
+      <div class="category-card">
+        <img src="images/engineering.png" alt="" width="50px">
+        <h3>Engineering</h3>
+        <p>2235 jobs available</p>
+      </div>
+      <div class="category-card">
+        <img src="images/business.png" alt="" width="50px">
+        <h3>Business</h3>
+        <p>2235 jobs available</p>
+      </div>
+      <div class="category-card">
+        <img src="images/hr.png" alt="" width="50px">
+        <h3>Human Resources</h3>
+        <p>2235 jobs available</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>JobVault &copy; 2025</p>
+  </footer>
+
+</body>
+</html>
